@@ -1,11 +1,9 @@
 function setup() {
-  resizeCanvas(windowWidth,windowHeight)
-}
-
-function draw() {
+  createCanvas(100,100)
   background(220);
 }
 
-function windowResized(){
-  resizeCanvas(windowWidth,windowHeight)
+function draw(){
+  background(220);
+circle(50,50,10)
 }

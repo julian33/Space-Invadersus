@@ -1,21 +1,29 @@
-var amongusAnimator;
+var crabAnimator;
+var squidAnimator;
+var octopusAnimator;
+var Aliens =[];
+var mySquid
 
 function preload() {
-    amongusAnimator = new animator("Amongus",6,48)
-    amongusAnimator2 = new animator("Amongus",6,24)
+  //Initialize the Animators (Preloads the animated sprites)
+    crabAnimator = new animator("Crab",6,2,100*0.5)
+    squidAnimator = new animator("Squid",6,6,70*0.5)
+    octopusAnimator = new animator("Octopus",10,4,60*0.5)
 }
 
 function setup() {
   createCanvas(600, 600);
+  
+  mySquid = new squid(300,300,squidAnimator)
+  myCrab = new crab(300,200,crabAnimator)
+  myOctopus = new octopus(300,100,octopusAnimator)
 }
 
 function draw() {
   background(0);
-  let x=width / 2+sin(millis()/150)*100
-  let y=height / 2+cos(millis()/300)*100
-  let size = 100
-  amongusAnimator.drawFrame(x,y,size)
-  amongusAnimator2.drawFrame(100,100,size)
+  mySquid.display();
+  myCrab.display();
+  myOctopus.display();
   
 }
 

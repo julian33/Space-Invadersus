@@ -1,0 +1,6 @@
+class manager{
+    constructor(){
+
+    }
+    run
+}

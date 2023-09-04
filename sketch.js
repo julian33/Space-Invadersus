@@ -11,7 +11,7 @@ function preload() {
   crabAnimator = new animator("Crab", 6, 2, 100 * 0.5)
   squidAnimator = new animator("Squid", 6, 6, 70 * 0.5)
   octopusAnimator = new animator("Octopus", 10, 4, 60 * 0.5)
-  playerAnimator = new animator("Player", 250, 30, 350)
+  playerAnimator = new animator("Player", 250, 30, 200)
 }
 
 function setup() {
@@ -29,4 +29,6 @@ function draw() {
   mySwarm.display();
   myPlayer.updatePlayer();
 }
+
+
 

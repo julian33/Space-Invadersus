@@ -7,10 +7,14 @@ class bullet {
         this._type=type;
     }
     move(){
-        this._x+=this._xvel;
-        this._x+=this._xvel;
+        this._x+=this._xvel*deltaTime;
+        this._y+=this._yvel*deltaTime;
     }
     updateBullet(){
         this.move();
+        this.display();
+    }
+    display(){
+        circle(this._x,this._y,10);
     }
 }

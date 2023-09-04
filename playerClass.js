@@ -5,6 +5,7 @@ class player {
         this._hp = hp;
         this._Animator=Animator;
         this.canShoot = false;
+        this.bullets=[];
     }
     move() {
         let _xvel = 0;
@@ -13,22 +14,30 @@ class player {
         this._x += _xvel;
     }
     display() {
+        if (this.bullets.length>0) {
+            for (let i = 0; i < this.bullets.length; i++) {
+                this.bullets[i].updateBullet();
+                
+            }
+        }
+
         this._Animator.drawFrame(this._x,this._y)
-        square(this._x, this._y, 1)
     }
     shoot() {
-        print("Bang!")
+        print("Bang!");
+        this.bullets.push(new bullet(this._x,this._y-(this._Animator.animSize/2)*0.65,0,-1,"Normal"));
     }
     updatePlayer() {
         this.move();
         this.display();
         if (mouseIsPressed) {
             if (this.canShoot == true) {
-                this.shoot()
+                this.shoot();
                 this.canShoot = false;
             }
         } else {
             this.canShoot = true;
         }
     }
+    
 }

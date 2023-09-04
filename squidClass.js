@@ -1,5 +1,6 @@
 class squid extends alien {
-    constructor(x,y,Animator){
-        super(x,y,Animator);
+        //Child class of Alien, carries over everything that the alien class has.
+    constructor(x, y, Animator, Life) {
+        super(x, y, Animator, Life);
     }
 }

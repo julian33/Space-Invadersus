@@ -1,21 +1,27 @@
 class alien {
-    constructor(x,y,Animator){
-        this.x=x;
-        this.y=y;
-        this.Animator=Animator
+    constructor(x, y, Animator, Life) {
+        this.x = x;
+        this.y = y;
+        this.Life = true;
+        this.Animator = Animator
     }
 
-    move(x_amount,y_amount){
-        this.x += x_amount
-        this.y += y_amount
+    //Moves the Alien x,y amount.
+    move(x_amount, y_amount) {
+        this.x += x_amount;
+        this.y += y_amount;
     }
 
-    setPos(newX,newY){
+    //Sets the aliens x,y pos.
+    setPos(newX, newY) {
         this.x = newX;
         this.y = newY;
     }
 
-    display(){
-        this.Animator.drawFrame(this.x,this.y)
+    //Display the alien.
+    display() {
+        if (this.Life == true) {
+            this.Animator.drawFrame(this.x, this.y);
+        }
     }
 }

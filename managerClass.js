@@ -1,6 +1,0 @@
-class manager{
-    constructor(){
-
-    }
-    run
-}

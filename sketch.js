@@ -4,7 +4,6 @@ var octopusAnimator;
 var playerAnimator;
 var mySwarm;
 var myPlayer;
-var global = 20;
 
 function preload() {
   //Initialize the Animators (Preloads the animated sprites)

@@ -5,6 +5,7 @@ class bullet {
         this._y = y;
         this._yvel = yvel;
         this._type = type;
+        this._hasHit=false;
 
     }
 
@@ -19,29 +20,44 @@ class bullet {
         this.move();
         this.display();
         this.hitCheck(mySwarm);
+        this.onScreen(myPlayer.bullets.indexOf(this));
     }
 
     //Displays the bullet.
     display() {
-        circle(this._x, this._y, 10);
+        if (this._hasHit==false) {
+            rect(this._x, this._y, 10, 25);
+        }
     }
 
-    //Checks if bullet hit alien and removes itself along said alien.
+    //Checks if bullet hit alien and sets the hasHit boolean to true
     hitCheck(_flock) {
         for (let i = 0; i < _flock.aliens.length; i++) {
             let _distance = this.distanceToAlien(_flock.aliens[i]);
-            if (_distance < _flock.aliens[i].Animator.animSize / 1.6) {
+            if (_distance < _flock.aliens[i].Animator.animSize / 1.6 &&this._hasHit==false) {
                 _flock.aliens[i].Life = false;
-                myPlayer.bullets.splice(myPlayer.bullets.indexOf(this), myPlayer.bullets.indexOf(this)); //Sletter
+                this._hasHit=true
             }
+        }
+    }
+    //Checks if the bullet is onscreen and deltes it if it isnt.
+    onScreen(_idx) {
+        print(_idx)
+        if (this._y < -25) {
+            myPlayer.bullets.shift()
+
         }
     }
 
     //Finds the distance to alien
     distanceToAlien(_alien) {
-        let x_dist = this._x - _alien.x;
-        let y_dist = this._y - _alien.y;
-        let total_dist = sqrt((x_dist * x_dist) + (y_dist * y_dist));
-        return (total_dist);
+        if (_alien.Life == true) {
+            let x_dist = this._x - _alien.x;
+            let y_dist = this._y - _alien.y;
+            let total_dist = sqrt((x_dist * x_dist) + (y_dist * y_dist));
+            return (total_dist);
+        } else {
+            return 9999999;
+        }
     }
 }

@@ -18,13 +18,14 @@ class player {
 
     //Displays the players bullets & itself
     display() {
+        print(this.bullets)
         if (this.bullets.length > 0) {
             for (let i = 0; i < this.bullets.length; i++) {
                 this.bullets[i].updateBullet();
 
             }
         }
-        this._Animator.drawFrame(this._x, this._y)
+        this._Animator.drawFrame(this._x, this._y);
     }
 
     //Spawns a bullet at its position.

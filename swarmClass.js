@@ -59,6 +59,11 @@ class swarm {
 
     for (let i = 0; i < this.aliens.length; i++) {
       this.aliens[i].move(this.x_vel, 0)
+
+      //Enemien skyder 1/1000 gange hver frame.
+      if (round(random(1, 1000))==1){
+        this.aliens[i].shoot()
+      }
     }
     this.x_pos -= this.x_vel;
     this.display();

@@ -24,4 +24,9 @@ class alien {
             this.Animator.drawFrame(this.x, this.y);
         }
     }
+
+    //Shoots bullets
+    shoot() {
+        
+    }
 }

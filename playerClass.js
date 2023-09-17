@@ -18,7 +18,7 @@ class player {
 
     //Displays the players bullets & itself
     display() {
-        print(this.bullets)
+        print(this.bullets.length)
         if (this.bullets.length > 0) {
             for (let i = 0; i < this.bullets.length; i++) {
                 this.bullets[i].updateBullet();
@@ -34,12 +34,13 @@ class player {
         this.bullets.push(new bullet(this._x, this._y - (this._Animator.animSize / 2) * 0.65, 0, -0.25, "Normal"));
     }
 
-    //Runs the methods required for it to work. Also runs the shoot method if the mouse is clicked.
+    //Runs the methods required for the player to work. Also runs the shoot method if the mouse is clicked.
     updatePlayer() {
         this.move();
         this.display();
         if (mouseIsPressed) {
-            if (this.canShoot == true) {
+            if (this.canShoot == true&&this.bullets.length<2) {
+                //print(this.bullets)
                 this.shoot();
                 this.canShoot = false;
             }

@@ -26,7 +26,9 @@ class bullet {
     //Displays the bullet.
     display() {
         if (this._hasHit==false) {
-            rect(this._x, this._y, 10, 25);
+            fill(255,0,0);
+            rectMode(CENTER);
+            rect(this._x, this._y, 5, 25);
         }
     }
 
@@ -42,7 +44,7 @@ class bullet {
     }
     //Checks if the bullet is onscreen and deltes it if it isnt.
     onScreen(_idx) {
-        print(_idx)
+        //print(_idx)
         if (this._y < -25) {
             myPlayer.bullets.shift()
 
